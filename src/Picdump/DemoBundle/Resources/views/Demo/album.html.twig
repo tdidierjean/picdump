@@ -1,0 +1,31 @@
+{% extends "PicdumpDemoBundle::layout.html.twig" %}
+
+{% block title "Albums" %}
+
+{% block content %}
+        <link rel="stylesheet" href="/bundles/picdumpdemo/css/zoomgallery.css" type="text/css" />
+        <link rel="stylesheet" href="{{ asset('bundles/picdumpdemo/css/album.css') }}" />
+    <style type="text/css">
+        body{background-image: url("{{album_background | apply_filter('display')}}");}
+    </style>
+        <script type="text/javascript" src="/bundles/picdumpdemo/js/jquery.js"></script>
+        <script type="text/javascript" src="/bundles/picdumpdemo/js/hammer.js"></script>
+        <script type="text/javascript" src="/bundles/picdumpdemo/js/jquery.hammer.js"></script>
+        <script type="text/javascript" src="/bundles/picdumpdemo/js/zoomgallery.js"></script>
+        <script type="text/javascript">
+            {#$('body').css('background-image', 'url("{{album_background}}")');#}
+            $(document).ready(function() {
+                $('.zoomgallery').zoomgallery();
+            });
+        </script>
+
+    <div id="images_container">
+        {% for image in images %}
+            <a href="{{image | apply_filter('display')}}" class="zoomgallery">
+                <img src="{{ image | apply_filter('thumbs') }}" />
+            </a>
+        {% endfor %}
+        <div style="clear:both"></div>
+    </div>
+{% endblock %}
+
