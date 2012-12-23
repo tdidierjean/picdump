@@ -1,0 +1,170 @@
+/*
+Copyright (C) 2012 de Flotte Maxence
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+*/
+
+/*
+ * @version 0.6
+ */
+
+.zoomgallery {
+	display: block;
+	float: left;
+	border-radius: 5px;
+	margin: 0 2px;
+	line-height: 1.1;
+	cursor: url(./zoomin.cur), default;
+	border: none;
+}
+.zoomgallery.loading {
+	opacity: 0.6;
+}
+.zoomgallery  img {
+	border-radius: 5px;
+	border: none;
+}
+.zoomWindow {
+	margin: 10px;
+	border-radius: 5px;
+	box-shadow: 4px 4px 20px black;
+}
+.mobilezoom .limiter {
+	display: none;
+	cursor: url(./zoomin.cur), default;
+}
+.zoomWindow.mobilezoom {
+	border-radius: 0 !important;
+	margin: 0 !important;
+	position: fixed !important;
+	top: 0 !important;
+	left: 0 !important;
+	right: 0 !important;
+	bottom: 0 !important;
+	overflow: hidden !important;
+	width: 100% !important;
+	height: 100% !important;
+}
+.zoomWindow.mobilezoom img {
+	position: absolute;
+}
+
+.zoomWindow.mobilezoom .limiter {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	box-shadow: -26px 0px 57px #3093b7;
+	border-color: #3093b7; /* The border color is used to defined box-shadow color */
+	top: 0;
+	display: block;
+}
+.zoomWindow.mobilezoom .navbar, .zoomWindow.mobilezoom .titlebar {
+	border-radius: 0;
+	position: fixed;
+	left: 0;
+	right: 0;
+}
+.zoomWindow img {
+	border-radius: 5px;
+	cursor: url(./zoomout.cur), default;
+}
+.zoomWindow.reset {
+	box-shadow: none;
+}
+.zoomWindow .navbar {
+	display: block;
+	background: white;
+	background: rgba(255, 255, 255, 0.3);
+	border-radius: 5px 5px 0 0;
+	position: absolute;
+	top: -30px;
+	left: 0;
+	width: 100%;
+	height: 30px;
+	-moz-transition-duration: 0.2s;
+	-webkit-transition-duration: 0.2s;
+	-o-transition-duration: 0.2s;
+	-ie-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+}
+.zoomWindow.expended .navbar {
+	top: 0px;
+}
+.zoomWindow .navbar .next {
+	margin-top: 5px;
+	width: 0px;
+	height: 0px;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-left: 20px solid black;
+	position: absolute;
+	right: 5px;
+	cursor: pointer;
+	opacity: 0.7;
+	top: 0px;
+	-moz-transition-duration: 0.2s;
+	-webkit-transition-duration: 0.2s;
+	-o-transition-duration: 0.2s;
+	-ie-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+}
+.zoomWindow .navbar .next:hover {
+	opacity: 0.9;
+}
+.zoomWindow .navbar .prev {
+	margin-top: 5px;
+	width: 0px;
+	height: 0px;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+	border-right: 20px solid black;
+	position: absolute;
+	left: 5px;
+	cursor: pointer;
+	opacity: 0.7;
+	top: 0px;
+	-moz-transition-duration: 0.2s;
+	-webkit-transition-duration: 0.2s;
+	-o-transition-duration: 0.2s;
+	-ie-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+}
+.zoomWindow .navbar .prev:hover {
+	opacity: 0.9;
+}
+.zoomWindow .titlebar {
+	display: block;
+	background: white;
+	background: rgba(255, 255, 255, 0.3);
+	border-radius: 0 0 5px 5px;
+	position: absolute;
+	bottom: -30px;
+	left: 0;
+	width: 100%;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	font-weight: bold;
+	color: rgba(0, 0, 0, 0.7);
+	text-shadow: 1px 1px #AAA;
+	-moz-transition-duration: 0.2s;
+	-webkit-transition-duration: 0.2s;
+	-o-transition-duration: 0.2s;
+	-ie-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+}
+.zoomWindow.expended .titlebar {
+	bottom: 0px;
+}
